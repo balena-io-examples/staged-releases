@@ -1,3 +1,5 @@
+## This script returns the `build_id` for a specific commit on a resin.io application.
+## usage: ./get-build-id.sh <FULL_COMMIT_HASH>
 COMMIT_HASH=$1
 source resin.env
 
