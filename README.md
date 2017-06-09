@@ -7,7 +7,9 @@ To use these scripts you need to edit the `resin.env` file adding the Applicatio
 
 At a basic level, these scripts allow one to disable the auto tracking on the App, so that the fleet no longer automatically updates everytime you do a `git push resin master`. They also allow one to set a group of devices (marked with a user deviced ENV Var) to advance to a specific commit/build (selected from the build log list)
 Using the primatives shown in these scripts one could have a fleet of devices and deploy specific commits to specific subgroups as and when needed. It would be very easy to set up a system where developers have devices in the fleet set to `local mode` so they can test and develop locally, and when happy commit and merge the code into a branch that would then be released to the larger testing group. Obviously once the code being tested on the testing group is deemed stable, it would then be released to the whole fleet by advancing the fleet wide `Application commit`.
-
+## Prerequisits
+1. a resin.io account
+2. your system should have `jq` and `curl` installed
 ## Usage:
 
 1. Ensure that `resin.env` is updated with the correct `APP_ID`, `APP_NAME` and `authToken`
