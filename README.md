@@ -31,6 +31,6 @@ Note: this must be the full commit hash. It may take a few seconds for the test 
 ## Returning to rolling releases.
 If you want to return the fleet to keep tracking rolling releases and downloading updates whenever they are pushed, just run:
 ```
-./disable-rolling-release-on-fleet.sh
+./enable-rolling-release-on-fleet.sh
 ```
 and push a new commit, or use `set-fleet-commit-hash.sh` to set the App commit to the latest.
