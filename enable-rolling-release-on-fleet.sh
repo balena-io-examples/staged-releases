@@ -3,7 +3,7 @@
 # Note that you will need to either set the Application Commit to the latest using ./set-fleet-commit-hash.sh
 # or do another git push and the devices will update to that new build.
 
-source resin.env
+source ./resin.env
 echo "enabling rolling release tracking for APP == $APP_ID"
 curl -X PATCH "https://api.$BASE_URL/v2/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_track_latest_release":true}'
 

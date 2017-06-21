@@ -3,7 +3,7 @@
 # these devices will then update to whatever commit is supplied as arg $1
 
 COMMIT_HASH=$1
-source resin.env
+source ./resin.env
 
 device_list=$(curl -X GET -H "Authorization: Bearer  $authToken" -H "Content-Type: application/json" "https://api.$BASE_URL/v2/device?\$expand=device_environment_variable%2Capplication&\$filter=application/app_name%20eq%20%27$APP_NAME%27%20and%20device_environment_variable/env_var_name%20eq%20%27TEST%27&\$select=id" | jq '.d[] | .id')
 
