@@ -1,5 +1,13 @@
 ## This script sets a single device to a specific build of a commit.
 ## Usage: ./set-device-to-a-build.sh <DEVICE_ID> <FULL_COMMIT_HASH>
+if [ "$#" -ne 2 ]
+then
+  echo "Usage:"
+  echo "  $0 DEVICE_ID FULL_COMMIT_HASH"
+  exit 0
+fi
+
+
 source ./resin.env
 DEVICE_ID=$1
 COMMIT=$2

@@ -1,6 +1,12 @@
 # This script sets a group of devices to a specific commit,
 # currently it will look for devices in an app that have an environment variable called "TEST"
 # these devices will then update to whatever commit is supplied as arg $1
+if [ "$#" -ne 1 ]
+then
+  echo "Usage:"
+  echo "  $0 FULL_COMMIT_HASH"
+  exit 0
+fi
 
 COMMIT_HASH=$1
 source ./resin.env
