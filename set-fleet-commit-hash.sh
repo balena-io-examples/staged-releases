@@ -1,6 +1,12 @@
 ## This script sets the fleet wide commit hash to a specified value.
 ## It is usually used after one has disabled rolling releases and allows one
 ## to set an entire fleet to any specific build in their list of builds for an App.
+if [ "$#" -ne 1 ]
+then
+  echo "Usage:"
+  echo "  $0 FULL_COMMIT_HASH"
+  exit 0
+fi
 
 source ./resin.env
 COMMIT_HASH=$1
