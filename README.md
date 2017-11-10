@@ -22,6 +22,7 @@ Using the primitives shown in these scripts one could have a fleet of devices an
 ./set-fleet-commit-hash.sh <PUT YOUR FULL COMMIT HASH HERE>
 ```
 Note that you need to provide the full commit hash for this command. It should also be noted that any devices that join/provision into the fleet after this is set, will download and update this commit. To confirm that this has worked, check the top right of the device list page and you should see the `Application commit:` value has been set to the commit you passed it in the command.
+
 4. If we want to have a few devices that are part of a testing group, we can use the `set-device-to-a-build.sh` script. For convenience, I defined an device env var `TEST` that is used to designate that this device is part of the testing group. So any device in my fleet that has the env var `TEST` can then be set with a testing build. The script `update-test-group.sh` will set all the devices with this env var to a specific commit/build.
 ```
 ./update-test-group.sh <PUT YOUR FULL COMMIT HASH HERE>
