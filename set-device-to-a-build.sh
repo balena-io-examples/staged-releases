@@ -6,6 +6,15 @@
 source ./resin.env
 DEVICE_UUID=$1
 DEVICE_ID=$(./get-device-id.sh $DEVICE_UUID)
+
+# For backwards compatibility, in case that a device for the provided parameter was not found
+# and the the provided parameter is an integer, then we use it as the DEVICE_ID
+IntRegex='^[1-9][0-9]{0,9}$'
+if ! [[ $DEVICE_ID =~ $IntRegex ]] && [[ $DEVICE_UUID =~ $IntRegex ]] ; then
+	echo "using DEVICE parameter as ID"
+	DEVICE_ID=$DEVICE_UUID
+fi
+
 COMMIT=$2
 BUILD_ID=$(./get-build-id.sh $COMMIT)
 echo "setting device $DEVICE_ID to commit $COMMIT with buildID = $BUILD_ID"
