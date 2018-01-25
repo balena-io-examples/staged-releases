@@ -11,5 +11,5 @@ array=($device_list)
 for i in "${array[@]}"
 do
 	echo "setting update commit for device == $i"
-    ./set-device-to-a-build.sh $i $1
+	./set-device-to-a-build.sh $i $1
 done
