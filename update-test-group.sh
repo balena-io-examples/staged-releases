@@ -5,7 +5,9 @@
 COMMIT_HASH=$1
 source ./resin.env
 
-device_list=$(curl -X GET -H "Authorization: Bearer  $authToken" -H "Content-Type: application/json" "https://api.$BASE_URL/v2/device?\$expand=device_environment_variable%2Capplication&\$filter=application/app_name%20eq%20%27$APP_NAME%27%20and%20device_environment_variable/env_var_name%20eq%20%27TEST%27&\$select=id" | jq '.d[] | .id')
+TARGET_TAG_KEY='TEST'
+
+device_list=$(curl -X GET -H "authorization: Bearer $authToken" -H "Content-Type: application/json" "https://api.$BASE_URL/v3/device?\$expand=belongs_to__application(\$select=id),device_tag(\$select=id,tag_key)&\$filter=((belongs_to__application%20eq%20$APP_ID)%20and%20(device_tag/any(dt:((tag_key)%20eq%20(%27$TARGET_TAG_KEY%27)))))&\$select=id" | jq '.d[] | .id')
 
 array=($device_list)
 for i in "${array[@]}"
