@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ## This script sets the fleet wide commit hash to a specified value.
 ## It is usually used after one has disabled rolling releases and allows one
 ## to set an entire fleet to any specific build in their list of builds for an App.

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This script sets a group of devices to a specific commit,
 # currently it will look for devices in an app that have an environment variable called "TEST"
 # these devices will then update to whatever commit is supplied as arg $1

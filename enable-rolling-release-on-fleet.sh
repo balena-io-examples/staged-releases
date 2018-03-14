@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This reverses the action in ./disable-rolling-release-on-fleet.sh
 # and causes all the devices to again start tracking the latest build.
 # Note that you will need to either set the Application Commit to the latest using ./set-fleet-commit-hash.sh

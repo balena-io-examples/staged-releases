@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This file checks that the settings in resin.env are loaded and authenticating correctly
 
 source ./resin.env
