@@ -1,8 +1,11 @@
+#!/usr/bin/env bash
 ######################## Disable Rolling Release for an App ################################################
 # This script stops the automatic updating of devices in an App whenever a new build is triggered.
 # You will also need to set a specific Application commit to lock the App to, use the "set-fleet-commit-hash.sh"
 # script to lock to a specific commit from your list of builds in your "Build logs" page on the dashboard.
 ############################################################################################################
+
+./check-configuration.sh || exit 1
 
 # Bring our resin Token, URL, etc from resin.env file
 source ./resin.env
