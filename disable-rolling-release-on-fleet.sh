@@ -4,6 +4,8 @@
 # script to lock to a specific commit from your list of builds in your "Build logs" page on the dashboard.
 ############################################################################################################
 
+./check-configuration.sh || exit 1
+
 # Bring our resin Token, URL, etc from resin.env file
 source ./resin.env
 

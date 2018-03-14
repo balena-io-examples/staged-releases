@@ -1,5 +1,8 @@
 ## This script returns the `device_id` for a specific device on a resin.io application.
 ## usage: ./get-device-id.sh <DEVICE_UUID>
+
+./check-configuration.sh || exit 1
+
 DEVICE_UUID=$1
 source ./resin.env
 

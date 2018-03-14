@@ -2,6 +2,8 @@
 # currently it will look for devices in an app that have an environment variable called "TEST"
 # these devices will then update to whatever commit is supplied as arg $1
 
+./check-configuration.sh || exit 1
+
 COMMIT_HASH=$1
 source ./resin.env
 

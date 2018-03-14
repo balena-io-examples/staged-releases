@@ -2,6 +2,8 @@
 ## It is usually used after one has disabled rolling releases and allows one
 ## to set an entire fleet to any specific build in their list of builds for an App.
 
+./check-configuration.sh || exit 1
+
 source ./resin.env
 COMMIT_HASH=$1
 echo "setting APP: $APP_ID to COMMIT == $COMMIT_HASH"

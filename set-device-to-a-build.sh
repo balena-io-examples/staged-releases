@@ -3,6 +3,8 @@
 ## Usage: ./set-device-to-a-build.sh <DEVICE_UUID> <FULL_COMMIT_HASH>
 ## Usage: ./set-device-to-a-build.sh <DEVICE_UUID>
 
+./check-configuration.sh || exit 1
+
 source ./resin.env
 DEVICE_UUID=$1
 DEVICE_ID=$(./get-device-id.sh $DEVICE_UUID)
