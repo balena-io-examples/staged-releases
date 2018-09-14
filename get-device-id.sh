@@ -7,4 +7,4 @@
 DEVICE_UUID=$1
 source ./resin.env
 
-curl "https://api.$BASE_URL/v2/device?\$select=id,uuid&\$filter=uuid%20eq%20'$DEVICE_UUID'" -H "Authorization: Bearer $authToken" | jq '.d[0].id' 
+curl "https://api.$BASE_URL/v4/device?\$select=id,uuid&\$filter=uuid%20eq%20'$DEVICE_UUID'" -H "Authorization: Bearer $authToken" | jq '.d[0].id'

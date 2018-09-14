@@ -8,7 +8,6 @@
 
 source ./resin.env
 echo "enabling rolling release tracking for APP == $APP_ID"
-curl -X PATCH "https://api.$BASE_URL/v2/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_track_latest_release":true}'
+curl -X PATCH "https://api.$BASE_URL/v4/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_track_latest_release":true}'
 
-curl "https://api.$BASE_URL/v2/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" | jq .
-
+curl "https://api.$BASE_URL/v4/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" | jq .
