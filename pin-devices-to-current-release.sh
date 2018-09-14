@@ -13,5 +13,5 @@ if [ -z $COMMIT ]; then
 else
 	RELEASE_ID=$(./get-release-id.sh $COMMIT)
 fi
-echo "setting devices with commit $COMMIT with buildID = $BUILD_ID"
-curl -X PATCH "https://api.$BASE_URL/v4/device?\$filter=is_on__commit%20eq%20'$COMMIT'" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_be_running__release":'$BUILD_ID'}'
+echo "setting devices with commit $COMMIT with release = $RELEASE_ID"
+curl -X PATCH "https://api.$BASE_URL/v4/device?\$filter=is_on__commit%20eq%20'$COMMIT'" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_be_running__release":'$RELEASE_ID'}'
