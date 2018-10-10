@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 ## This script sets a single device to a specific build of a commit.
 ## To set a device back to the most recent release, run this script without a commit hash parameter.
-## Usage: ./set-device-to-a-build.sh <DEVICE_UUID> <FULL_COMMIT_HASH>
-## Usage: ./set-device-to-a-build.sh <DEVICE_UUID>
+## Usage: ./set-device-to-a-release.sh <DEVICE_UUID> <FULL_COMMIT_HASH>
+## Usage: ./set-device-to-a-release.sh <DEVICE_UUID>
 
 ./check-configuration.sh || exit 1
 
@@ -20,9 +20,9 @@ fi
 
 COMMIT=$2
 if [ -z $COMMIT ]; then
-	BUILD_ID="null"
+	RELEASE_ID="null"
 else
-	BUILD_ID=$(./get-build-id.sh $COMMIT)
+	RELEASE_ID=$(./get-release-id.sh $COMMIT)
 fi
-echo "setting device $DEVICE_ID to commit $COMMIT with buildID = $BUILD_ID"
-curl -X PATCH "https://api.$BASE_URL/v2/device($DEVICE_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"build":'$BUILD_ID'}'
+echo "setting device $DEVICE_ID to commit $COMMIT with release = $RELEASE_ID"
+curl -X PATCH "https://api.$BASE_URL/v4/device($DEVICE_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_be_running__release":'$RELEASE_ID'}'
