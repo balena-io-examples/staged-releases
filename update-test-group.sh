@@ -8,7 +8,10 @@
 
 COMMIT_HASH=$1
 TARGET_TAG_KEY=$2
-source ./resin.env
+if [ -f "./resin.env" ]; then
+    source ./resin.env
+fi
+source ./balena.env
 
 if [ -z $COMMIT_HASH ]; then
 	RELEASE_ID="null"

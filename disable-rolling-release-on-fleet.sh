@@ -7,8 +7,11 @@
 
 ./check-configuration.sh || exit 1
 
-# Bring our resin Token, URL, etc from resin.env file
-source ./resin.env
+# Bring our balena Token, URL, etc from balena.env file
+if [ -f "./resin.env" ]; then
+    source ./resin.env
+fi
+source ./balena.env
 
 # Patch call to set "should_track_latest_release"  to false
 echo "Disabling rolling release tracking for APP == $APP_ID"

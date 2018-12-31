@@ -1,20 +1,21 @@
-# Staged Updates on resin.io
+# Staged Updates on balena
 
-This repo is a collection of scripts to demonstrate some of the new API endpoints offered on resin.io to enable the more fine grained control of app updates across a fleet of devices.
+This repo is a collection of scripts to demonstrate some of the new API endpoints offered on balenaCloud to enable the more fine grained control of app updates across a fleet of devices.
 These scripts simply show how to use the available primitives and in the near future this functionality will be surfaced on the UI and via the CLI.
 
-To use these scripts you need to edit the `resin.env` file adding the Application you want to operate on (replacing APP_ID with the appropriate value) and your `authToken` from the preferences page on the resin.io dashboard.
+To use these scripts you need to edit the `balena.env` file adding the Application you want to operate on (replacing APP_ID with the appropriate value) and your `authToken` from the preferences page on the balenaCloud dashboard.
+* Note that while using `resin.env` is still supported, it is destined for deprecation and is discouraged.
 
-At a basic level, these scripts allow one to disable the auto tracking on the App, so that the fleet no longer automatically updates every time you do a `git push resin master`. They also allow one to set a group of devices (marked with a device tag) to advance to a specific commit/build (selected from the releases list).
+At a basic level, these scripts allow one to disable the auto tracking on the App, so that the fleet no longer automatically updates every time you do a `git push balena master`. They also allow one to set a group of devices (marked with a device tag) to advance to a specific commit/build (selected from the releases list).
 Using the primitives shown in these scripts one could have a fleet of devices and deploy specific commits to specific subgroups as and when needed. It would be very easy to set up a system where developers have devices in the fleet set to `local mode` so they can test and develop locally, and when happy commit and merge the code into a branch that would then be released to the larger testing group. Obviously once the code being tested on the testing group is deemed stable, it would then be released to the whole fleet by advancing the fleet wide `Application commit`.
 
 ## Prerequisites
 
-1. a resin.io account
+1. a balenaCloud account
 2. your system should have `jq` and `curl` installed
 ## Usage:
 
-1. Ensure that `resin.env` is updated with the correct `APP_ID` and `authToken`
+1. Ensure that `balena.env` is updated with the correct `APP_ID` and `authToken`
 2. To disable the automatic update tracking run:
 ```
 ./disable-rolling-release-on-fleet.sh

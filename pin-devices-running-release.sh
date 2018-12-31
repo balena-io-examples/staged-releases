@@ -4,7 +4,10 @@
 
 ./check-configuration.sh || exit 1
 
-source ./resin.env
+if [ -f "./resin.env" ]; then
+    source ./resin.env
+fi
+source ./balena.env
 
 COMMIT=$1
 if [ -z $COMMIT ]; then

@@ -6,7 +6,10 @@
 
 ./check-configuration.sh || exit 1
 
-source ./resin.env
+if [ -f "./resin.env" ]; then
+    source ./resin.env
+fi
+source ./balena.env
 DEVICE_UUID=$1
 DEVICE_ID=$(./get-device-id.sh $DEVICE_UUID)
 
