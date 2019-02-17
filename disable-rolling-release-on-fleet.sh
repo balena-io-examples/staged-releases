@@ -15,7 +15,7 @@ source ./balena.env
 
 # Patch call to set "should_track_latest_release"  to false
 echo "Disabling rolling release tracking for APP == $APP_ID"
-curl -X PATCH "https://api.$BASE_URL/v4/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_track_latest_release":false}'
+curl -X PATCH "https://api.$BASE_URL/v5/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_track_latest_release":false}'
 
 # Check that it was applied.
-curl "https://api.$BASE_URL/v4/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" | jq .
+curl "https://api.$BASE_URL/v5/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" | jq .
