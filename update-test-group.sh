@@ -29,6 +29,7 @@ if [ ! -z "$TARGET_TAG_VALUE" ] ; then
   VALUE_QUERY="%20and%20((value)%20eq%20(%27$TARGET_TAG_VALUE%27))"
   VALUE_MSG="and value $TARGET_TAG_VALUE"
 else
+  VALUE_QUERY=""
   VALUE_MSG="with any value"
 fi
 
