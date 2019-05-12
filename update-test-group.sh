@@ -26,7 +26,7 @@ if [ -z "$TARGET_TAG_KEY" ]; then
 fi
 
 if [ ! -z "$TARGET_TAG_VALUE" ] ; then
-  VALUE_QUERY="and%20(device_tag/any(dt:((tag_value)%20eq%20(%27$TARGET_TAG_VALUE%27))))"
+  VALUE_QUERY="%20and%20((value)%20eq%20(%27$TARGET_TAG_VALUE%27))"
   VALUE_MSG="and value $TARGET_TAG_VALUE"
 else
   VALUE_MSG="with any value"
