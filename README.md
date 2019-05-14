@@ -33,12 +33,12 @@ Note that you need to provide the full commit hash for this command. It should a
 
 5. For convenience, we can define a device tag with `TEST` (or any other tag) as its key that is used to designate the devices that are part of the testing group. So any device in the fleet that has the `TEST` tag can then be set with a testing build. The `update-test-group.sh` script will set all the devices with this tag to a specific commit/build:
 ```
-./update-test-group.sh <FULL COMMIT HASH HERE> <TAG NAME>
+./update-test-group.sh <FULL COMMIT HASH HERE> [<TAG NAME> [<TAG_VALUE>]]
 ```
 
-Where `<TAG NAME>` defaults to `TEST` if not provided.
+This will update all devices that have a tag with key `<TAG_NAME>` (default is `TEST`) and value `<TAG_VALUE>`. If `<TAG_VALUE>` is omitted, it will update all devices that have a tag with the corresponding key, regardless of its value.
 
-Note: this must be the full commit hash. It may take a few seconds for the test devices to start updating to the correct version of the code.
+Note: The hash must be the full commit hash. It may take a few seconds for the test devices to start updating to the correct version of the code.
 
 ## Returning to rolling releases
 
