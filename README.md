@@ -1,7 +1,12 @@
 # Staged Updates on balena
 
 This repo is a collection of scripts to demonstrate some of the new API endpoints offered on balenaCloud to enable the more fine grained control of app updates across a fleet of devices.
-These scripts simply show how to use the available primitives and in the near future this functionality will be surfaced on the UI and via the CLI.
+
+> Update: Since this repo was created, the release pinning functionality was made available through
+> the web dashboard, and masterclass documentation was added on using the balena API (e.g. `curl`
+> commands) to achieve the same. References:  
+> https://www.balena.io/docs/learn/deploy/release-strategy/release-policy/  
+> https://www.balena.io/docs/learn/more/masterclasses/fleet-management/#6-release-policy
 
 To use these scripts you need to edit the `balena.env` file adding the Application you want to operate on (replacing APP_ID with the appropriate value) and your `authToken` from the preferences page on the balenaCloud dashboard.
 * Note that while using `resin.env` is still supported, it is destined for deprecation and is discouraged.
