@@ -10,5 +10,6 @@ if [ -f "./resin.env" ]; then
 fi
 source ./balena.env
 COMMIT_HASH=$1
-echo "setting APP: $APP_ID to COMMIT == $COMMIT_HASH"
-curl -X PATCH "https://api.$BASE_URL/v5/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"commit":"'$COMMIT_HASH'"}'
+RELEASE_ID=$(./get-release-id.sh $COMMIT_HASH)
+echo "setting APP: $APP_ID to release = $RELEASE_ID with commit $COMMIT_HASH"
+curl -X PATCH "https://api.$BASE_URL/v6/application($APP_ID)" -H "Authorization: Bearer $authToken" -H "Content-Type: application/json" --data-binary '{"should_be_running__release":'$RELEASE_ID'}'
