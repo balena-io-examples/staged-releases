@@ -38,4 +38,4 @@ echo "Setting all devices with tag $TARGET_TAG_KEY $VALUE_MSG to commit $COMMIT_
 curl -X PATCH -H "authorization: Bearer $authToken"\
   -H "Content-Type: application/json" \
 	--data-binary '{"should_be_running__release":'$RELEASE_ID'}' \
-	"https://api.$BASE_URL/v5/device?\$expand=belongs_to__application(\$select=id),device_tag(\$select=id,tag_key)&\$filter=((belongs_to__application%20eq%20$APP_ID)%20and%20(device_tag/any(dt:(((tag_key)%20eq%20(%27$TARGET_TAG_KEY%27))$VALUE_QUERY))))"
+	"https://api.$BASE_URL/v6/device?\$filter=((belongs_to__application%20eq%20$APP_ID)%20and%20(device_tag/any(dt:(((tag_key)%20eq%20(%27$TARGET_TAG_KEY%27))$VALUE_QUERY))))"

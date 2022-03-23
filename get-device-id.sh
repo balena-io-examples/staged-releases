@@ -10,4 +10,4 @@ if [ -f "./resin.env" ]; then
 fi
 source ./balena.env
 
-curl "https://api.$BASE_URL/v5/device?\$select=id,uuid&\$filter=uuid%20eq%20'$DEVICE_UUID'" -H "Authorization: Bearer $authToken" | jq '.d[0].id'
+curl "https://api.$BASE_URL/v6/device?\$select=id,uuid&\$filter=uuid%20eq%20'$DEVICE_UUID'" -H "Authorization: Bearer $authToken" | jq '.d[0].id'
